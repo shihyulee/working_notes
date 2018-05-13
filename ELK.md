@@ -1,4 +1,6 @@
 # ELK Stack Install
+## Prerequisite
+* OS: Ubuntu 16.04
 ## Elasticsearch
 1. Download
 > https://www.elastic.co/downloads/elasticsearch
