@@ -23,7 +23,7 @@ http.port: 9200
 5. restart
 > $ systemctl start elasticsearch
 6. check
-> $ curl "http://192.168.56.101:9200/_cat/nodes"
+> $ curl "http://localhost:9200/_cat/nodes"
  
 ## Filebeat
 1. Download
@@ -37,7 +37,9 @@ filebeat.prospectors:
 - input_type: log
   paths:
     # modify your LOG path
-    - \Logs\*.*log*
+    - /var/log/auth.log        
+    - /var/log/syslog
+    #- \Logs\*.*log*
 output.elasticsearch:
   # modify your IP
   hosts: ["localhost:9200"]
@@ -119,10 +121,50 @@ server.host: "0.0.0.0"
 6. open the browser
 > http://localhost:5601
 
+## Nginx
+1. 
+> sudo apt-get install nginx 
+2.
+> sudo vi /etc/nginx/sites-available/default
+
+replacing the original contest, and modify example.com
+```
+/etc/nginx/sites-available/default
+
+- server {
+
+-     listen 80;
+
+-     server_name example.com;
+
+-     auth_basic "Restricted Access";
+
+-     auth_basic_user_file /etc/nginx/htpasswd.users;
+
+-     location / {
+
+-         proxy_pass http://localhost:5601;
+
+-         proxy_http_version 1.1;
+
+-         proxy_set_header Upgrade $http_upgrade;
+
+-         proxy_set_header Connection 'upgrade';
+
+-         proxy_set_header Host $host;
+
+-         proxy_cache_bypass $http_upgrade;        
+
+-     }
+
+- }
+```
+3. sudo service nginx restart
 ## Reference
 1. https://blog.johnwu.cc/article/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-centos-red-hat.html
-2. https://ithelp.ithome.com.tw/articles/10186153
+2. https://blog.csdn.net/zstack_org/article/details/60749112
 3. https://www.ibm.com/developerworks/cn/opensource/os-cn-elk/index.html
 4. https://www.howtoing.com/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-16-04
 5. https://www.linuxidc.com/Linux/2017-09/147092.htm
 6. https://www.jianshu.com/p/43e3a2f437fd
+7. https://ithelp.ithome.com.tw/articles/10186153
