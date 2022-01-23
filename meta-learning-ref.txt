@@ -1,0 +1,26 @@
+Few-Shot Learning
+  * Transfer learning
+   * Domain adaptation
+	 - ADAPT (arXiv:2107.03049) (https://github.com/adapt-python/adapt)
+	 - Adversarial Weighting for Domain Adaptation in Regression (arXiv:2006.08251) (https://github.com/antoinedemathelin/wann)
+   * Research 
+     - https://github.com/deepmind/deepmind-research
+     - https://github.com/jindongwang/transferlearning
+	 - https://github.com/thuml/Transfer-Learning-Library
+	 
+	 
+* Domain adaptation Related 
+    - Domain Adversarial Neural Network (DANN) Domain Adaptive Transfer Learning for Fault Diagnosis (arXiv:1905.06004)
+	- Joint Distribution Adaption (JDA)
+		* Joint Distribution Optimal Transportation for Domain Adaptation (arXiv:1705.08848) (https://github.com/rflamary/JDOT)
+		* Deep Transfer Network with Joint Distribution Adaptation: A New Intelligent Fault Diagnosis Framework for Industry Application
+	- Maximum Mean Discrepancy (MMD)
+	    * Maximum Mean Discrepancy Test is Aware of Adversarial Attacks (arXiv:2010.11415) (https://github.com/Sjtubrian/SAMMD)
+		* Calibrated Reliable Regression using Maximum Mean Discrepancy (arXiv:2006.10255)
+
+  * Meta Learning (Learning to learn)
+   * Model-agnostic-meta-learning(MAML)
+     - learn2learn: A Library for Meta-Learning Research (arXiv:2008.12284) https://github.com/learnables/learn2learn
+	 - Meta-Learning with Adaptive Hyperparameters (arXiv:2011.00209) https://github.com/baiksung/ALFA
+	 - Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks (arXiv:1703.03400) (https://github.com/hoyeoplee/pytorch-maml)
+     - https://github.com/cnguyen10/few_shot_meta_learning
